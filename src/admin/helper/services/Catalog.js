@@ -1,9 +1,9 @@
 import api from "../ApiConfig";
 import { Apis } from "../API";
 
-const getTextList = async () => {
+const getTextList = async (data) => {
   try {
-    let result = await api.get(Apis.GetTextList);
+    let result = await api.post(Apis.GetTextList, data);
     return result.data;
   } catch (error) {
     console.log(error);

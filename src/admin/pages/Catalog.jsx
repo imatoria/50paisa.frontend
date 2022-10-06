@@ -27,7 +27,7 @@ const Catalog = () => {
       let data = { productType: productType, totalInCombo: totalInCombo };
       if (data.productType !== "0" && data.totalInCombo !== 0) {
         toggleLoader(true);
-        Promise.all([CatalogService.getTextList(), CatalogService.getProductList(data)]).then(([arrText, products]) => {
+        Promise.all([CatalogService.getTextList(data), CatalogService.getProductList(data)]).then(([arrText, products]) => {
           if (arrText.error || products.error) {
             toaster.error("Encountered issue in fetching data.");
           } else {
